@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "title": "my_spreadsheet",
+    "locale": "ru_RU",
+    "autoRecalc": "ON_CHANGE",
+    "timeZone": "Etc/GMT"
+  },
+  "sheets": [
+    {
+      "properties": {
+        "sheetId": 0,
+        "title": "Sheet1",
+        "index": 0,
+        "sheetType": "GRID",
+        "gridProperties": {
+          "rowCount": 1000,
+          "columnCount": 26
+        }
+      }
+    }
+  ]
+}
