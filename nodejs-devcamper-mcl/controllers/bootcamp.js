@@ -27,7 +27,7 @@ exports.createBootcamp = (req, res, next) => {
 // @route   PUT /api/v1/bootcamps
 // @access  Private
 
-exports.createBootcamp = (req, res, next) => {
+exports.updateBootcamp = (req, res, next) => {
   res.status(200).json({ success: true, msg: `Update bootcamp ${req.params.id}` });
 }
 
@@ -35,6 +35,6 @@ exports.createBootcamp = (req, res, next) => {
 // @route   DELTETE /api/v1/bootcamps
 // @access  Private
 
-exports.createBootcamp = (req, res, next) => {
-  res.status(204).json({ success: true, msg: `Delete bootcamp ${req.params.id}` });
+exports.deleteBootcamp = (req, res, next) => {
+  res.status(200).json({ success: true, msg: `Delete bootcamp ${req.params.id}` });
 }
