@@ -5,7 +5,7 @@ const colors = require('colors')
 const connectDB = require('./config/db');
 
 //Route files
-const bootcamp = require('./routes/bootcamp');
+const bootcamps = require('./routes/bootcamps');
 
 // LOAD ENV
 dotenv.config({ path: './config/config.env' });
@@ -15,6 +15,9 @@ connectDB()
 
 const app = express();
 
+//Body parser
+app.use(express.json())
+
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -22,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 //Mount routes
-app.use('/api/v1/bootcamp', bootcamp);
+app.use('/api/v1/bootcamps', bootcamps);
 
 const PORT = process.env.PORT || 5000;
 
@@ -33,6 +36,6 @@ const server = app.listen(
 
 //Handle rejections
 process.on('unhandledRejection', (err,promise) => {
-  console.log(`Error: ${err.message}`);
+  console.log(`Error: ${err.message}`.red.bold);
   server.close(() => process.exit(1));
 });
