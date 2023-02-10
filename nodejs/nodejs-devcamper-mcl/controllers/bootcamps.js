@@ -32,7 +32,6 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
   
 })
 
-
 // @desc    Creates bootcamp
 // @route   POST /api/v1/bootcamps
 // @access  Private

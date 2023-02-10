@@ -124,8 +124,6 @@ exports.deleteCourse = asyncHandler( async (req, res, next) => {
     return next(new ErrorResponse(`No course with the id of ${req.params.id}`))
   }
 
-  console.log('COURSE',course)
-
   // Make sure that course owner is logged in user
   if (course.user.toString() !== req.user.id && req.user.role !== 'admin') {
     return next(
