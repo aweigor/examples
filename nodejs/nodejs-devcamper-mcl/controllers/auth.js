@@ -2,6 +2,7 @@ const asyncHandler = require( '../middleware/async.js' );
 const ErrorResponse = require( '../utils/errorResponse' );
 const sendEmail = require( '../utils/sendEmail' );
 const User = require('../models/User');
+const crypto = require('crypto');
 
 // @desc      Register user
 // @route     GET /api/v1/auth/register
