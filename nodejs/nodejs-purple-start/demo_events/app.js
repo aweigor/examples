@@ -46,8 +46,6 @@ myEmitter.emit('error', new Error('boom'));
 
 // Target events
 const target = new EventTarget();
-const logTarget = () => {
-  console.log('Connected to target');
-}
+const logTarget = () => {console.log('Connected to target');}
 target.addEventListener('connected', logTarget);
 target.dispatchEvent(new Event('connected'));
