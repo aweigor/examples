@@ -1,0 +1,17 @@
+- init
+
+## phases
+// MicrotaskQueue, nextTick
+-- timers
+// MicrotaskQueue, nextTick
+-- pending callbacks
+// MicrotaskQueue, nextTick
+-- idle, prepare
+// MicrotaskQueue, nextTick
+--  poll
+// MicrotaskQueue, nextTick
+-- check
+// MicrotaskQueue, nextTick
+-- close
+
+-- check exit()
