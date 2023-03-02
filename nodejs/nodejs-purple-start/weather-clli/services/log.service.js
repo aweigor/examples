@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import dedent from 'dedent-js';
 
 const printError = (error) => {
-  console.log(chalk.bgRed(' SUCCESS ') + ' ' + error);
+  console.log(chalk.bgRed(' ERROR ') + ' ' + error);
 };
 
 const printSuccess = (message) => {
