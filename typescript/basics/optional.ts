@@ -10,7 +10,7 @@ const user: User = {
 }
 
 
-function multiply(first: number, second?: number): number {
+function multiply1(first: number, second?: number): number {
   if (!second) {
     return first * first;
   }
@@ -18,7 +18,7 @@ function multiply(first: number, second?: number): number {
   return first * second;
 }
 
-multiply(5);
+multiply1(5);
 
 interface UserPro {
   login: string;
@@ -33,5 +33,5 @@ function testPass(user: UserPro) {
 }
 
 function test(param?: string) {
-  const t = param ?? multiply(5);
+  const t = param ?? multiply1(5);
 }
