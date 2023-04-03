@@ -35,3 +35,6 @@ class PersistantPayment extends Payment {
     }
   }
 }
+
+new PersistantPayment();
+
