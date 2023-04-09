@@ -20,7 +20,7 @@ c.handleWithLogs('Request');
 
 // excercise
 abstract class Logger {
-  abstract log(message);
+  abstract log(message: string): void;
 
   printDate(date: Date) {
     this.log(date.toString());
