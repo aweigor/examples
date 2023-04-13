@@ -6,4 +6,15 @@ type StrOrNumFunc = (a: number | string) => number;
 
 //let f: StrOrNumFunc = test;
 
-test.apply(undefined, [1, 3]);
+// test.apply(undefined, [1, 3]);
+
+class A {
+  b: number;
+
+  test() {
+    return function() {
+      // вызовет предупреждение strict
+      // this.b
+    }
+  }
+}
