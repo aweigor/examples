@@ -18,3 +18,37 @@ class A {
     }
   }
 }
+
+class User {
+  public role: string;
+
+  constructor(role) {
+    this.role = role;
+  }
+}
+
+function createUser(user: User) {
+  // логика
+  const defaultUser = new User('default');
+  defaultUser.role = undefined;
+
+  // noFallthroughCasesInSwitch
+  switch (user.role) {
+    case "a": {
+      const a = 7;
+    }
+    case "b": {
+      const b = 10;
+    }
+  }
+}
+
+
+interface IChecks {
+  drive: boolean,
+  [check: string]: boolean;
+}
+
+// noUncheckedIndexedAccess
+const c: IChecks = {'kpp': true};
+const d = c['drive'];
