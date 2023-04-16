@@ -24,3 +24,23 @@ function getSplitedHalf<T>(data: Array<T>): Array<T> {
 }
 
 getSplitedHalf<number>([1, 3, 5]);
+
+const split: <T>(data: Array<T>) => Array<T> = getSplitedHalf;
+const split2: <Y>(data: Array<Y>) => Array<Y> = getSplitedHalf; // Y is valid, generic is abstract
+
+interface ILogLine<T> {
+  timeStamp: Date,
+  data: T
+}
+
+type logLineType<T> = {
+  timeStamp: Date,
+  data: T
+}
+
+const logLine: ILogLine<{ a: number }> = {
+  timeStamp: new Date(),
+  data: {
+    a: 1
+  }
+}
