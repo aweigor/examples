@@ -17,3 +17,5 @@ const user: IUser = {
 }
 
 const userName = getValue(user, 'name');
+
+export {};

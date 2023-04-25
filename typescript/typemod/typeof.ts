@@ -26,3 +26,5 @@ enum Direction {
 }
 
 type d = keyof typeof Direction;
+
+export {};
