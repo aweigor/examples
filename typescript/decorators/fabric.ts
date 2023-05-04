@@ -4,8 +4,8 @@ interface IUserService {
 }
 
 @nullUser
-@setUsers(2)
 @log()
+@setUsers(2)
 @nullUserAdvanced
 class UserService implements IUserService {
   users: number;
@@ -19,7 +19,7 @@ function nullUser(target: Function, tsss) {
 }
 
 function setUsers(users: number) {
-  return (target: Function) => {
+  return (target: Function, _context) => {
     target.prototype.users = users;
   }
 }
