@@ -4,12 +4,35 @@ interface IUserService {
 }
 
 class UserService implements IUserService {
-  @Max(100)
-  users: number = 1000;
+  
+  private _users: number;
+  
+  @MaxLog(100)
+  set users(num: number) {
+    this._users = num;
+  }
+
+  get users() {
+    return this._users;
+  }
 
   @Log
   getUsersInDatabase(): number {
       throw new Error('error')
+  }
+}
+
+function MaxLog(max: number) {
+  return (
+    target: Object,
+    _: string | symbol,
+    descriptor: PropertyDescriptor
+  ) => {
+    const set = descriptor.set;
+    descriptor.set = (...args: any) => {
+      console.log(args);
+      set?.apply(target, args);
+    }
   }
 }
 
