@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 interface IUserService {
   users: number;
   getUsersInDatabase(): number
@@ -19,6 +21,10 @@ class UserService implements IUserService {
   @Log
   getUsersInDatabase(): number {
       throw new Error('error')
+  }
+
+  setUsersInDatabase(@Positive() num: number): void {
+    throw new Error('error')
   }
 }
 
@@ -70,6 +76,44 @@ function Log(
   console.log(descriptor)
   descriptor.value = () => {
     console.log('no error');
+  }
+}
+
+const POSITIVE_METADATA_KEY = 'positive';
+
+// Можно валидировать параметры в рантайме
+function Positive() {
+  return (
+    target: Object,
+    propertyKey: string,
+    parameterIndex: number
+  ) => {
+    console.log(Reflect.getOwnMetadata('design:type', target, propertyKey));
+    console.log(Reflect.getOwnMetadata('design:paramtypes', target, propertyKey));
+    console.log(Reflect.getOwnMetadata('design:returntype', target, propertyKey));
+    let existParams: number[] = Reflect.getOwnMetadata(POSITIVE_METADATA_KEY, target, propertyKey)
+    existParams.push(parameterIndex);
+    Reflect.defineMetadata(POSITIVE_METADATA_KEY, existParams, target, propertyKey);
+  }
+}
+
+function Validate() {
+  return (
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor: TypedPropertyDescriptor<(...args: any[]) => any>
+  ) => {
+    let method = descriptor.value;
+    descriptor.value = function (...args: any) {
+      let positiveParams: number[] = Reflect.getOwnMetadata(POSITIVE_METADATA_KEY, target, propertyKey);
+      if (positiveParams) {
+        for (let index of positiveParams) {
+          if (args[index] < 0) {
+            console.log('Число доджно быть больше нуля')
+          }
+        }
+      }
+    }
   }
 }
 
