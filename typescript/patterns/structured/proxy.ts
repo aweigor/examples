@@ -20,8 +20,15 @@ class PaymentAccessProxy {
     if (this.userId === 1) {
       return this.api.getPaymentDetail(id);
     }
-    console.log()
+    console.log('no permissions to ')
+    return undefined;
   }
 }
+
+const proxy = new PaymentAccessProxy(new PaymentAPI(), 1);
+console.log(proxy.getPaymentDetail(1));
+
+const proxy2 = new PaymentAccessProxy(new PaymentAPI(), 2);
+console.log(proxy.getPaymentDetail(1));
 
 export {};
