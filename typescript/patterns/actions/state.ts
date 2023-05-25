@@ -7,6 +7,7 @@ class DocumentItem {
   }
   setState(state: DocumentItemState) {
     this.state = state;
+    this.state.setContext(this);
   }
 
   publishDoc() {
