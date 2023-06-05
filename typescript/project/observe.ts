@@ -36,7 +36,6 @@ import inquirer from 'inquirer';
   res.stdout.on('data', (data: any) => {
     console.log(data.toString());
   })
-  
 })()
 
 
