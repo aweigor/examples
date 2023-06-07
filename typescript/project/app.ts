@@ -1,6 +1,9 @@
+import { PromptService } from './core/prompt.service';
+
 export class App {
   run() {
-    console.log('run');
+    const res = new PromptService().input<number>('Число', 'number');
+    console.log(res);
     return this;
   }
 }
