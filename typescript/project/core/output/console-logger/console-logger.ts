@@ -18,5 +18,4 @@ export class ConsoleLogger implements IStreamLogger {
   end(): void {
     console.log('exit');
   };
-
 }
