@@ -4,9 +4,7 @@ import { ILogObj } from './logger.types';
 export class LoggerService {
   public logger: Logger<ILogObj>;
   constructor() {
-    this.logger = new Logger({
-      s
-    });
+    this.logger = new Logger();
   }
 
   log (...args: unknown[]) {
