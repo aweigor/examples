@@ -9,30 +9,30 @@ import 'reflect-metadata';
 
 @injectable()
 export class App {
-  app: Express;
-  server?: Server;
-  port: number;
-  
-  constructor(
-    @inject(TYPES.ILogger) private logger: ILogger,
-    @inject(TYPES.UserController) private userController: UserController,
-    @inject(TYPES.ExceptionFilter) private exceptionFilter: ExceptionFilter,
-    ) {
-    this.app = express();
-    this.port = 8000;
-  }
+	app: Express;
+	server?: Server;
+	port: number;
 
-  useRoutes() {
-    this.app.use('/users', this.userController.router);
-  }
+	constructor(
+		@inject(TYPES.ILogger) private logger: ILogger,
+		@inject(TYPES.UserController) private userController: UserController,
+		@inject(TYPES.ExceptionFilter) private exceptionFilter: ExceptionFilter,
+	) {
+		this.app = express();
+		this.port = 8000;
+	}
 
-  useExceptionFilters() {
-    this.app.use(this.exceptionFilter.catch.bind(this.exceptionFilter));
-  }
+	useRoutes(): void {
+		this.app.use('/users', this.userController.router);
+	}
 
-  public async init() {
-    this.useRoutes();
-    this.server = this.app.listen(this.port);
-    console.log(`Server is running on http://localhost:${this.port}`);
-  }
+	useExceptionFilters(): void {
+		this.app.use(this.exceptionFilter.catch.bind(this.exceptionFilter));
+	}
+
+	public async init(): Promise<void> {
+		this.useRoutes();
+		this.server = this.app.listen(this.port);
+		console.log(`Server is running on http://localhost:${this.port}`);
+	}
 }

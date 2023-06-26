@@ -1,1 +1,1 @@
-export class userRouter {};
+export class userRouter {}

@@ -1,3 +1,3 @@
 export interface ILogObj {
-  foo: string;
+	foo: string;
 }
