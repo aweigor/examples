@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations":[
+    {
+      "type": "node",
+      "name": "nodemon",
+      "request": "launch",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/nodemon/bin/nodemon.js",
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}

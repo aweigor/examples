@@ -27,5 +27,5 @@ export class C {
 
 @Injectable('D')
 export class D {
-	constructor(@Inject('C') c: C) {}
+	//constructor(@Inject('C') c: C) {}
 }
