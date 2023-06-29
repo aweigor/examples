@@ -6,6 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
+    "dev": "nodemon",
+    "dev:inspect": "nodemon -e ts,json --exec node --inspect -r ts-node/register src/main.ts",
     "start": "node ./dist/main.js",
     "lint": "eslint ./src/**",
     "lint:fix": "eslint ./src/** --fix",
