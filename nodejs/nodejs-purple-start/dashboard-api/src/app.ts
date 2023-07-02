@@ -5,6 +5,7 @@ import { ExceptionFilter } from './errors/exception.filter';
 import { ILogger } from './logger/logger.interface';
 import { inject, injectable } from 'inversify';
 import { TYPES } from './types';
+import { json } from 'body-parser';
 import 'reflect-metadata';
 
 @injectable()
@@ -24,6 +25,10 @@ export class App {
 
 	useRoutes(): void {
 		this.app.use('/users', this.userController.router);
+	}
+
+	useMiddleware(): void {
+		this.app.use(json());
 	}
 
 	useExceptionFilters(): void {
