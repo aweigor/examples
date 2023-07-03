@@ -3,9 +3,12 @@ import { App } from './app';
 import { ExceptionFilter } from './errors/exception.filter';
 import { LoggerService } from './logger/logger.service';
 import { UserController } from './users/users.controller';
+import { IUserController } from './users/users.controller.interface';
 import { ILogger } from './logger/logger.interface';
 import { TYPES } from './types';
 import { IExceptionFilter } from './errors/exception.filter.interface';
+import { IUserService } from './users/users.service.interface';
+import { UserService } from './users/users.service';
 
 export interface BootstrapReturn {
 	appContainer: Container;
@@ -15,7 +18,8 @@ export interface BootstrapReturn {
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
 	bind<ILogger>(TYPES.ILogger).to(LoggerService);
 	bind<IExceptionFilter>(TYPES.ExceptionFilter).to(ExceptionFilter);
-	bind<UserController>(TYPES.UserController).to(UserController);
+	bind<IUserController>(TYPES.UserController).to(UserController);
+	bind<IUserService>(TYPES.UserService).to(UserService);
 	bind<App>(TYPES.Application).to(App);
 });
 
