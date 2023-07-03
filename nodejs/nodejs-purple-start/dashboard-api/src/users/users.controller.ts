@@ -7,6 +7,7 @@ import { inject, injectable } from 'inversify';
 import { TYPES } from '../types';
 import { UserRegisterDto } from './dto/user-register.dto';
 import { UserLoginDto } from './dto/user-login.dto';
+import { User } from './user.entity';
 
 @injectable()
 export class UserController extends BaseController {
@@ -31,8 +32,13 @@ export class UserController extends BaseController {
 		next(new HTTPError(401, 'Not authorized'));
 	}
 
-	register(req: Request<{}, {}, UserRegisterDto>, res: Response, next: NextFunction): void {
-		console.log(req.body);
-		this.ok(res, 'register');
+	async register(
+		{ body }: Request<{}, {}, UserRegisterDto>,
+		res: Response,
+		next: NextFunction,
+	): Promise<void> {
+		const newUser = new User(body.email, body.name);
+		await newUser.setPassword(body.password);
+		this.ok(res, newUser);
 	}
 }
