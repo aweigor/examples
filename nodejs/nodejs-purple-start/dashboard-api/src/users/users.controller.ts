@@ -10,6 +10,7 @@ import { UserLoginDto } from './dto/user-login.dto';
 import { User } from './user.entity';
 import { IUserService } from './users.service.interface';
 import { ValidateMiddleware } from '../common/validate.middleware';
+import { UserService } from './users.service';
 
 @injectable()
 export class UserController extends BaseController {
@@ -29,13 +30,21 @@ export class UserController extends BaseController {
 				path: '/login',
 				method: 'post',
 				func: this.login,
+				middlewares: [new ValidateMiddleware(UserLoginDto)],
 			},
 		]);
 	}
 
-	login(req: Request<{}, {}, UserLoginDto>, res: Response, next: NextFunction): void {
-		console.log(req.body);
-		next(new HTTPError(401, 'Not authorized'));
+	async login(
+		req: Request<{}, {}, UserLoginDto>,
+		res: Response,
+		next: NextFunction,
+	): Promise<void> {
+		const result = await this.userService.validateUser(req.body);
+		if (!result) {
+			return next(new HTTPError(401, 'Not authorized'));
+		}
+		this.ok(res, {});
 	}
 
 	async register(
