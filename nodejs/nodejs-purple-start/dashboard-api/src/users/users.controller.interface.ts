@@ -9,4 +9,5 @@ export interface IUserController {
 		res: Response,
 		next: NextFunction,
 	): Promise<void>;
+	info(req: Request, res: Response, next: NextFunction);
 }
