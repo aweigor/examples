@@ -18,3 +18,7 @@ describe('Users e2e', () => {
 		expect(res.statusCode).toBe(422);
 	});
 });
+
+afterAll(() => {
+	application.close();
+});
