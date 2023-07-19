@@ -15,4 +15,4 @@ export class User {
 	images: string[];
 }
 
-export const UserFactory = SchemaFactory.createForClass(User);
+export const UserSchema = SchemaFactory.createForClass(User);
