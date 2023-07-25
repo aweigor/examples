@@ -5,6 +5,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { getMongoConfig } from './configs/mongo.config';
+import { AuthModule } from './auth/auth.module';
+import { TopPageModule } from './top-page/top-page.module';
+import { ProductModule } from './product/product.module';
+import { ReviewModule } from './review/review.module';
 
 @Module({
   imports: [
@@ -14,7 +18,11 @@ import { getMongoConfig } from './configs/mongo.config';
       inject: [ConfigService],
       useFactory: getMongoConfig
     }),
-    UsersModule
+    UsersModule,
+    AuthModule,
+    TopPageModule,
+    ProductModule,
+    ReviewModule
   ],
   controllers: [AppController],
   providers: [AppService],
