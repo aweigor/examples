@@ -1,4 +1,5 @@
 import { Prop } from '@nestjs/mongoose';
+import { Types } from 'mongoose';
 
 export class ReviewModel {
 	@Prop()
@@ -9,10 +10,13 @@ export class ReviewModel {
 	title: string;
 	@Prop()
 	description: string;
-
 	@Prop()
 	rating: number;
-
 	@Prop()
 	createdAt: Date;
+	@Prop()
+	productId: Types.ObjectId;
+	create(any) {
+
+	}
 }
