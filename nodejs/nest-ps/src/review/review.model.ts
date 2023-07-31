@@ -1,9 +1,9 @@
 import { Prop } from '@nestjs/mongoose';
+import { TimeStamps, Base } from '@typegoose/typegoose/lib/defaultClasses';
 import { Types } from 'mongoose';
 
-export class ReviewModel {
-	@Prop()
-	_id: string;
+export interface ReviewModel extends Base {}
+export class ReviewModel extends TimeStamps {
 	@Prop()
 	name: string;
 	@Prop()
@@ -15,8 +15,5 @@ export class ReviewModel {
 	@Prop()
 	createdAt: Date;
 	@Prop()
-	productId: Types.ObjectId;
-	create(any) {
-
-	}
+	productId: Types.ObjectId
 }

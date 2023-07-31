@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Post, Get, Param, HttpException, HttpStatus }
 import { ReviewModel } from './review.model';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { REVIEW_NOT_FOUND } from './review.constants';
+import { ReviewService } from './review.service';
 
 @Controller('review')
 export class ReviewController {

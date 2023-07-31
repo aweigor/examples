@@ -1,4 +1,5 @@
 import { Prop } from '@nestjs/mongoose';
+import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
 class ProductCharacteristic {
 	@Prop()
@@ -7,7 +8,8 @@ class ProductCharacteristic {
 	value: string;
 }
 
-export class ProductModel {
+export interface ProductModel extends Base {}
+export class ProductModel extends TimeStamps {
 	@Prop()
 	image: string;
 	@Prop()

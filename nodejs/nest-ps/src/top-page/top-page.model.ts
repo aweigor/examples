@@ -1,4 +1,5 @@
 import { Prop } from '@nestjs/mongoose';
+import { TimeStamps, Base } from '@typegoose/typegoose/lib/defaultClasses';
 
 export enum TopLevelCategory {
 	Courses,
@@ -25,9 +26,8 @@ export class TopPageAdvantage {
 	description: string
 }
 
-export class TopPageModel {
-	_id: string;
-
+export interface TopPageModel extends Base {}
+export class TopPageModel extends TimeStamps {
 	@Prop({ enum: TopLevelCategory })
 	firstCategory: TopLevelCategory;
 	@Prop()

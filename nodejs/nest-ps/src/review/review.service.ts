@@ -2,20 +2,28 @@ import { Injectable, Inject } from '@nestjs/common';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { ReviewModel } from './review.model';
 import { InjectModel, ModelDefinition } from '@nestjs/mongoose';
+import { ModelType, DocumentType } from '@typegoose/typegoose/lib/types';
+import { Types } from 'mongoose';
 
 @Injectable()
 export class ReviewService {
-	constructor(@InjectModel(ReviewModel) private readonly reviewModel: ReviewModel) {}
-	async create(dto: CreateReviewDto): Promise<ReviewModel> {
-		return Promise.resolve(this.reviewModel.create(dto))
+	constructor(@Inject(ReviewModel) private readonly reviewModel: ModelType<ReviewModel>) {}
+	async create(dto: CreateReviewDto): Promise<DocumentType<ReviewModel>> {
+		return this.reviewModel.create(dto);
 	}
-	async update(dto: CreateReviewDto): Promise<ReviewModel> {
-		return Promise.resolve(this.reviewModel.create(dto))
+	async update(dto: CreateReviewDto): Promise<DocumentType<ReviewModel>> {
+		return this.reviewModel.create(dto);
 	}
-	async delete(dto: CreateReviewDto): Promise<DocumentType<ReviewModel> | null> {
+	async delete(id: string): Promise<DocumentType<ReviewModel> | null> {
 		return this.reviewModel.findByIdAndDelete(id).exec();
 	}
 	async findByProductId(productId: string): Promise<DocumentType<ReviewModel>[]> {
-		return this.reviewModel.find({ productId: Types.ObjectId(productId).exec() })
+		return this.reviewModel.find({ productId: new Types.ObjectId(productId)}).exec()
+	}
+
+	async deleteByProductId(productId: string) {
+		return this.reviewModel.deleteMany({
+			productId: new Types.ObjectId(productId)
+		}).exec()
 	}
 }
