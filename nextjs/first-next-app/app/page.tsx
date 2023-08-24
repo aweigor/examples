@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function Home() {
+  const a = 1;
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -15,7 +16,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{a}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"

@@ -13,6 +13,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "sourceMap": true,
+    "sourceRoot": "https://my-website.com/debug/source/",
     "plugins": [
       {
         "name": "next"
