@@ -5,13 +5,13 @@
 	padding: 10px;
 
 	cursor: pointer;
+	transition: all .2s;
 	text-align: center;
 
 	border: none;
 	border-radius: 5px;
 
 	font-size: 14px;
-	transition: all .2s;
 }
 
 .primary {
@@ -25,6 +25,6 @@
 
 .ghost {
 	color: var(--black);
-	background-color: none;
 	border: 1px solid var(--grey-light);
+	background-color: none;
 }
