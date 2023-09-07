@@ -2,7 +2,7 @@ import { PProps } from './P.props';
 import styles from './P.module.css';
 import cn from 'classnames';
 import StarIcon from './star.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RatingProps } from './Rating.props';
 
 export const Rating = ({ isEditable = false, rating, setRating, className, ...props  }: RatingProps) => {
