@@ -1,19 +1,19 @@
+//
+//  main.cpp
+//  snake2
+//
+//  Created by igor on 12.09.2023.
+//
+
 #include <iostream>
-using namespace std;
-
-#include <windows.h>
-
-int nScreenWidth = 120;
-int nScreenHeight = 30;
+#include <ncurses.h>
 
 int main()
 {
-  wchar_t *screen = new wchar_t[nScreenWidth * nScreenHeight];
-  for (int i = 0; i < nScreenWidth * nScreenHeight; i++) screen[i] = L' ';
-  HANDLE hConsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-  SetConsoleActiveScreenBuffer(hConsole);
-  DWORD dwBytesWritten = 0;
-
-  return 0;
+    initscr();
+    printw("Hello, world.");
+    refresh();
+    getch();
+    endwin();
+    return 0;
 }
-
