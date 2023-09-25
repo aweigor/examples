@@ -25,9 +25,29 @@ struct Figure
 
 Figure f;
 
+void printPosition(int str, int col, int size) {
+    if (str > 0 and str <= size and col > 0 and col <= size) {
+        std::cout << "(" << str << ", " << col << ")" << '\n';
+    }
+}
+
 int main() {
-    std::cout << "f.i is: " << f.i << '\n';
-    std::cout << "f.j is: " << f.j << '\n';
+    const int BS = 8; // board size
+    const int CTR = 4; // center of the board
+    
+    int nh = 0; // kernel width
+    
+    std::cout << "figure position: " << '\n';
+    printPosition(f.i, f.j, BS); // figure position
+    
+    std::cout << "figure moves: " << '\n';
+    while (++nh <= (CTR + std::abs(CTR - std::min(f.i, f.j)))) {
+        //--DEBUG std::cout << "(kernel width: " << nh << ")" << '\n';
+        printPosition(f.i + (nh * -1), f.j + (nh * -1), BS); // top left
+        printPosition(f.i + (nh * -1), f.j + (nh * +1), BS); // top right
+        printPosition(f.i + (nh * +1), f.j + (nh * -1), BS); // bottom left
+        printPosition(f.i + (nh * +1), f.j + (nh * +1), BS); // bottom right
+    }
     
     return 0;
 }
