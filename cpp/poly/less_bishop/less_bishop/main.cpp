@@ -21,7 +21,7 @@ struct Figure
         std::cin >> j;
         
         if (j > BS or j < 1) {
-            throw std::invalid_argument("Column must be in range of 1-8");
+            throw std::invalid_argument("column must be in range of 1-8");
         }
     };
 };
