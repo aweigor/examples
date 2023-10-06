@@ -1,5 +1,6 @@
 
 #include <ncurses.h>
+#include <cstring>
 
 #define WIDTH 30
 #define HEIGHT 10 
@@ -97,7 +98,7 @@ void report_choice(int mouse_x, int mouse_y, int *p_choice)
 	j = starty + 3;
 	
 	for(choice = 0; choice < n_choices; ++choice)
-		if(mouse_y == j + choice && mouse_x >= i && mouse_x <= i + strlen(choices[choice]))
+		if(mouse_y == j + choice && mouse_x >= i && mouse_x <= i + std::strlen(choices[choice]))
 		{	if(choice == n_choices - 1)
 				*p_choice = -1;		
 			else
