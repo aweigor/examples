@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "576E5D732AC2F27700791B26"
-               BuildableName = "puzzles"
-               BlueprintName = "puzzles"
+               BlueprintIdentifier = "576E5D902AC30A3500791B26"
+               BuildableName = "romanmath"
+               BlueprintName = "romanmath"
                ReferencedContainer = "container:puzzles.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "576E5D732AC2F27700791B26"
-            BuildableName = "puzzles"
-            BlueprintName = "puzzles"
+            BlueprintIdentifier = "576E5D902AC30A3500791B26"
+            BuildableName = "romanmath"
+            BlueprintName = "romanmath"
             ReferencedContainer = "container:puzzles.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "576E5D732AC2F27700791B26"
-            BuildableName = "puzzles"
-            BlueprintName = "puzzles"
+            BlueprintIdentifier = "576E5D902AC30A3500791B26"
+            BuildableName = "romanmath"
+            BlueprintName = "romanmath"
             ReferencedContainer = "container:puzzles.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
